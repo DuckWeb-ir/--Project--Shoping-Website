@@ -22,6 +22,7 @@ export const AuthProvider = ({ children }) => {
             setIsLoding(false)
         }
     }
+
     useEffect(() => {
         initAuth()
     }, [])
@@ -30,15 +31,28 @@ export const AuthProvider = ({ children }) => {
         initAuth()
     }
 
-    const logOut = () => {
-        //  code
+    const Logout = async () => {
+
+        try {
+            setIsLoding(true)
+            const respons = await AuthService.logout()
+            console.log(respons);
+        } catch (err) {
+            console.log(`[logout -> ]`, err);
+
+        } finally {
+            setUser(null)
+            setIsLoding(false)
+        }
+
     }
 
 
     const value = {
         user,
         isLoading,
-        refreshUser
+        refreshUser,
+        Logout
     }
 
 
