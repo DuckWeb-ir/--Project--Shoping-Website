@@ -6,27 +6,34 @@ function useCategory() {
     const [isLoading, setIsLoading] = useState(true)
 
 
-    useEffect( () => {
+    useEffect(() => {
+        let mountFlag = true
 
-        const fetchCategories = async()=>{
+        const fetchCategories = async () => {
             try {
-                const res  = await getAllCategory()
-                setCategory(res?.data?.categories || [])
-                console.log(res);
-    
+
+                const res = await getAllCategory()
+                if (mountFlag) {
+                    setCategory(res?.data?.categories || []);
+                    console.log(res);
+                }
+
             } catch (err) {
-    
-                console.log("[useCategory.js Erorr=>]" ,(err) );
-    
+
+                console.log("[useCategory.js Erorr=>]", (err));
+
             } finally {
-                setIsLoading(false)
+                mountFlag && setIsLoading(false)
             }
         }
         fetchCategories()
 
+        return () => { mountFlag = false }
+
+
     }, [])
 
-    return {category , isLoading}
+    return { category, isLoading }
 }
 
 export default useCategory
