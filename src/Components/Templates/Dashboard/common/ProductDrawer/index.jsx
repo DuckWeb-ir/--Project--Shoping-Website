@@ -1,11 +1,12 @@
 import useCategory from "../../../../../Hooks/useCategory";
 import Drawer from "../Drawer";
 import ProductDrawerInput from "./ProductDrawerInput";
+import CascadeCategories from "./CascadeCategories"
 
 const ProductDrawer = ({ isOpen, onToggle }) => {
 
 
-    const { category, isLoading: isCategoryLoading } = useCategory()
+    const { categories , isLoading: isCategoryLoading } = useCategory()
 
     return (
         <Drawer isOpen={isOpen} onClose={onToggle} title="ایجاد محصول">
@@ -29,22 +30,22 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
                     type="file"
                 />
 
-                {isOpen &&
-                    <div>
-                        <label htmlFor="product-details"> دسته بندی  </label>
 
-                        {isCategoryLoading ? (
-                            <p>
-                                در حال بارگزاری دسته بندی ها...
-                            </p>
-                        ) : (
-                            <p>دسته بندی ها </p>
-                        )
+                <div>
+                    <label htmlFor="product-details"> دسته بندی  </label>
 
-                        }
-                    </div>
+                    {isCategoryLoading ? (
+                        <p>
+                            در حال بارگزاری دسته بندی ها...
+                        </p>
+                    ) : (
+                        <CascadeCategories  categories={categories}/>
+                    )
 
-                }
+                    }
+                </div>
+
+
 
                 <div>
                     <label htmlFor="product-details"> توضیحات محصول </label>

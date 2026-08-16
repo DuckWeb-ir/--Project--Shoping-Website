@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import getAllCategory from '../Services/category.service'
 
 function useCategory() {
-    const [category, setCategory] = useState([])
+    const [categories, setcategories] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
 
@@ -14,7 +14,7 @@ function useCategory() {
 
                 const res = await getAllCategory()
                 if (mountFlag) {
-                    setCategory(res?.data?.categories || []);
+                    setcategories(res?.data?.categories || []);
                     console.log(res);
                 }
 
@@ -33,7 +33,7 @@ function useCategory() {
 
     }, [])
 
-    return { category, isLoading }
+    return { categories, isLoading }
 }
 
 export default useCategory
