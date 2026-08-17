@@ -5,21 +5,21 @@ import * as AuthService from '../Services/auth.service'
 export const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
-    const [isLoading, setIsLoding] = useState(null)
+    const [isLoading, setIsLoading] = useState(null)
 
     const initAuth = async () => {
         try {
-            setIsLoding(true)
-            const respons = await AuthService.getMe()
+            setIsLoading(true)
+            const response = await AuthService.getMe()
 
-            setUser(respons.data.user)
+            setUser(response.data.user)
 
         } catch (err) {
             setUser(null)
             console.error(["Error in initAuth", err]);
 
         } finally {
-            setIsLoding(false)
+            setIsLoading(false)
         }
     }
 
@@ -34,15 +34,15 @@ export const AuthProvider = ({ children }) => {
     const Logout = async () => {
 
         try {
-            setIsLoding(true)
-            const respons = await AuthService.logout()
-            console.log(respons);
+            setIsLoading(true)
+            const response = await AuthService.logout()
+            console.log(response);
         } catch (err) {
             console.log(`[logout -> ]`, err);
 
         } finally {
             setUser(null)
-            setIsLoding(false)
+            setIsLoading(false)
         }
 
     }

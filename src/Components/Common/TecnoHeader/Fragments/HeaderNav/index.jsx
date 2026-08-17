@@ -1,6 +1,7 @@
-import { Boxes, Home, Info, Layers, Package, Percent, Phone, ShoppingBag , BookText } from 'lucide-react'
+import { Boxes, Home, Info, Layers, Package, Percent, Phone, ShoppingBag, BookText } from 'lucide-react'
 import React from 'react'
 import { NavLink } from 'react-router';
+import Button from '../../../../Ui/btn';
 
 function HeaderNav() {
     const navLinks = [
@@ -22,7 +23,7 @@ function HeaderNav() {
         {
             title: "مقالات",
             href: "/articles",
-            icon: BookText ,
+            icon: BookText,
         },
         {
             title: "درباره ما",
@@ -44,31 +45,12 @@ function HeaderNav() {
                     <div className="container mx-auto flex h-full items-center px-3">
 
                         {/* Category CTA */}
-                        <button
-                            type="button"
-                            className="
-                                           group
-                                           flex h-10 items-center
-                                           gap-2
-                                           rounded-lg
-                                           bg-primary-50
-                                           px-4
-                                           text-sm font-semibold
-                                           text-primary-600
-                                           transition-all duration-200
-                                           hover:bg-primary-100
-                                                 "
-                        >
-                            <Layers
-                                className="
-                                    size-4.5
-                                    transition-transform
-                                    group-hover:scale-110
-                            "
-                            />
+                        <Button variant="primary" icon={<Layers />} variant="secondary" >
 
-                            <span>دسته‌بندی کالاها</span>
-                        </button>
+                            دسته‌بندی کالاها
+
+                        </Button >
+                        
 
                         {/* Divider */}
                         <div className="mx-5 h-6 w-px bg-gray-200" />
