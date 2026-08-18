@@ -1,35 +1,21 @@
-import "swiper/css";
+import React from 'react'
+import HeroContent from './Fragments/HeroContent'
+import HeroSlider from './Fragments/‌HeroSlider'
 
-import { Autoplay, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SliderButtons from "./Fragments/SliderButtons";
-
-const HeroSection = () => {
+function HeroSection() {
     return (
-        <section className="w-full h-100">
-            <Swiper
-                loop
-                navigation={true}
-                modules={[Navigation, Autoplay]}
-                autoplay={{ delay: 1500 }}
-                className="mySwiper h-100 relative"
-            >
-                <SwiperSlide>
-                    <div className="h-100 w-full">
-                        <img src="/assets/static/banner1.png" />
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="h-100 w-full">
-                        <img src="/assets/static/banner2.png" />
-                    </div>
-                </SwiperSlide>
+        <section className="container relative overflow-hidden rounded-3xl min-h-150 mt-2.5">
+            {/* Slider / Images */}
+            <div className="">
+                <HeroSlider />
+            </div>
 
-                <SliderButtons />
-                
-            </Swiper>
+            {/* Content */}
+            <div className="absolute inset-0 z-10">
+                <HeroContent />
+            </div>
         </section>
-    );
-};
+    )
+}
 
-export default HeroSection;
+export default HeroSection

@@ -11,8 +11,8 @@ const buttonVariants = {
     dark:
         "bg-primary-600 text-white hover:bg-primary-700",
 
-    outline: ` border border-gray-200 bg-white text-gray-700 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-600
-    `,
+    outline:
+        "border border-gray-200 bg-white text-gray-700 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-600",
 };
 
 const buttonSizes = {
@@ -39,17 +39,30 @@ const buttonSizes = {
         px-4
         text-sm
     `,
+
+    xl: `
+        h-12
+        gap-2.5
+        rounded-lg
+        px-4.5
+        text-md
+    `,
 };
 
 const iconSizes = {
     sm: "[&>svg]:size-3.5",
     md: "[&>svg]:size-4.5",
     lg: "[&>svg]:size-5",
+    xl: "[&>svg]:size-5.5",
 };
 
 const iconHoverVariants = {
     scale: "group-hover:[&>svg]:scale-110",
-    translate: "group-hover:[&>svg]:translate-x-0.5",
+
+    translate: {
+        right: "group-hover:[&>svg]:translate-x-0.5",
+        left: "group-hover:[&>svg]:-translate-x-0.5",
+    },
 };
 
 export default function Button({
@@ -57,6 +70,7 @@ export default function Button({
     icon,
     iconSize,
     iconHover = "scale",
+    iconPosition = "right",
     size = "lg",
     variant = "primary",
     className,
@@ -64,6 +78,28 @@ export default function Button({
     ...props
 }) {
     const Component = to ? Link : "button";
+
+    const iconElement = icon && (
+        <span
+            className={clsx(
+                `
+                flex
+                shrink-0
+                items-center
+                justify-center
+                [&>svg]:transition-transform
+                [&>svg]:duration-200
+                `,
+                iconSizes[iconSize || size],
+
+                iconHover === "scale"
+                    ? iconHoverVariants.scale
+                    : iconHoverVariants.translate[iconPosition]
+            )}
+        >
+            {icon}
+        </span>
+    );
 
     return (
         <Component
@@ -88,26 +124,11 @@ export default function Button({
             )}
             {...props}
         >
-            {icon && (
-                <span
-                    className={clsx(
-                        `
-                        flex
-                        shrink-0
-                        items-center
-                        justify-center
-                        [&>svg]:transition-transform
-                        [&>svg]:duration-200
-                        `,
-                        iconSizes[iconSize || size],
-                        iconHoverVariants[iconHover]
-                    )}
-                >
-                    {icon}
-                </span>
-            )}
+            {iconPosition === "right" && iconElement}
 
             {children}
+
+            {iconPosition === "left" && iconElement}
         </Component>
     );
 }

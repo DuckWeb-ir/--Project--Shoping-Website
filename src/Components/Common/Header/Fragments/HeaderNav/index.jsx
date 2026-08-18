@@ -45,7 +45,7 @@ function HeaderNav() {
                     <div className="container mx-auto flex h-full items-center px-3">
 
                         {/* Category CTA */}
-                        <Button variant="primary" icon={<Layers />} variant="dark" >
+                        <Button variant="primary" icon={<Layers />} variant="primary" >
 
                             دسته‌بندی کالاها
 
