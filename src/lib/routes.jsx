@@ -17,6 +17,7 @@ import * as AuthService from '../Services/auth.service'
 import Forbidden from "../Pages/Forbiden.jsx";
 import NotFound from "../Pages/NotFound.jsx";
 import ModeratorProducts from "../Pages/Dashboard/moderator/products/page.jsx";
+import Test from "../Pages/Test.jsx";
 
 const router = createBrowserRouter([
     {
@@ -38,7 +39,10 @@ const router = createBrowserRouter([
             },
 
             { path: "forbidden", element: <Forbidden /> },
-            { path: '*', element: <NotFound /> }
+            { path: '*', element: <NotFound /> },
+
+            { path: "Test", element: <Test /> },
+
         ],
     },
     {
