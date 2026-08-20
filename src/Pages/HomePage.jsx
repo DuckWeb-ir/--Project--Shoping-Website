@@ -1,5 +1,6 @@
 import BenefitsBar from "../Components/Common/BenefitsBar";
 import BestSelling from "../Components/Templates/Home/Best-Selling";
+import CategorySlider from "../Components/Templates/Home/CategorySlider";
 import HeroSection from "../Components/Templates/Home/Hero-Section";
 import LatestProducts from "../Components/Templates/Home/Latest-Products";
 import OfferProducts from "../Components/Templates/Home/Offer-Product";
@@ -11,6 +12,7 @@ const HomePage = () => {
         <div className="container mx-auto flex flex-col gap-7 mt-5">
             <HeroSection />
             <BenefitsBar />
+            <CategorySlider/>
             <BestSelling />
             <LatestProducts />
             <OfferProducts />

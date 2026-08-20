@@ -9,6 +9,7 @@
 html {
     direction: rtl;
     scroll-behavior: smooth;
+    background-color: #F3F8FC
 }
 
 body {
@@ -40,6 +41,17 @@ body {
     --breakpoint-2xl: 1440px;
 
 
+
+    /* =========================
+       Shadows
+       ========================= */
+        /* Soft Card Shadows */
+    --shadow-card-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+    --shadow-card-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+    --shadow-card-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-card-lg: 0 6px 18px rgba(0, 0, 0, 0.06);
+    --shadow-card-xl: 0 8px 24px rgba(0, 0, 0, 0.07);
+
     /* =========================
        Brand Colors
        ========================= */
@@ -55,16 +67,16 @@ body {
     --color-primary-800: #0a3ca0;
     --color-primary-900: #103b7f;
 
-    --color-secondary-50: #f5f0ff;
-    --color-secondary-100: #ede5ff;
-    --color-secondary-200: #dccaff;
-    --color-secondary-300: #c1a5ff;
-    --color-secondary-400: #a178ff;
-    --color-secondary-500: #7c3aed;
-    --color-secondary-600: #6d28d9;
-    --color-secondary-700: #5b21b6;
-    --color-secondary-800: #4c1d95;
-    --color-secondary-900: #3b1675;
+    --color-secondary-50: #f8fafc;
+    --color-secondary-100: #f1f5f9;
+    --color-secondary-200: #e2e8f0;
+    --color-secondary-300: #cbd5e1;
+    --color-secondary-400: #94a3b8;
+    --color-secondary-500: #64748b;
+    --color-secondary-600: #475569;
+    --color-secondary-700: #334155;
+    --color-secondary-800: #1e293b;
+    --color-secondary-900: #0f172a;
 
 
     /* =========================
@@ -119,6 +131,29 @@ body {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Border Utilities */
 @utility primary-border {
     @apply border border-zinc-200;
@@ -146,9 +181,7 @@ body {
    ========================= */
 
 .auth-input {
-    @apply mt-2 h-10 w-full rounded-md border border-neutral-200 bg-white px-4 text-sm
-    outline-none duration-150
-    focus-within:ring-2 focus-within:ring-blue-500/40;
+    @apply mt-2 h-10 w-full rounded-md border border-neutral-200 bg-white px-4 text-sm outline-none duration-150 focus-within:ring-2 focus-within:ring-blue-500/40;
 }
 
 
@@ -166,11 +199,7 @@ body {
    ========================= */
 
 .contact-input-field {
-    @apply h-10 rounded-md border border-neutral-200 px-4 text-sm
-    ring-offset-2 duration-150
-    focus-within:outline-none
-    focus-within:ring-4
-    focus-within:ring-sky-400/40;
+    @apply h-10 rounded-md border border-neutral-200 px-4 text-sm ring-offset-2 duration-150 focus-within:outline-none focus-within:ring-4 focus-within:ring-sky-400/40;
 }
 
 
@@ -181,11 +210,7 @@ body {
    ========================= */
 
 input {
-    @apply px-4 text-sm outline-none duration-150
-    placeholder:text-sm
-    placeholder:font-light
-    placeholder:text-slate-300
- 
+    @apply px-4 text-sm outline-none duration-150 placeholder:text-sm placeholder:font-light placeholder:text-slate-300
 }
 
 
@@ -194,12 +219,7 @@ input {
    ========================= */
 
 textarea {
-    @apply px-2 pt-2 text-sm outline-none duration-150
-    placeholder:text-sm
-    placeholder:font-light
-    placeholder:text-slate-300
-    focus-within:ring-3
-    focus-within:ring-blue-500/40;
+    @apply px-2 pt-2 text-sm outline-none duration-150 placeholder:text-sm placeholder:font-light placeholder:text-slate-300 focus-within:ring-3 focus-within:ring-blue-500/40;
 }
 
 
@@ -208,9 +228,7 @@ textarea {
    ========================= */
 
 .sidebar-header {
-    @apply flex h-16 items-center justify-center
-    border-b border-zinc-200
-    font-bold text-zinc-600;
+    @apply flex h-16 items-center justify-center border-b border-zinc-200 font-bold text-zinc-600;
 }
 
 
@@ -219,16 +237,7 @@ textarea {
    ========================= */
 
 .search-button {
-    @apply absolute left-1.5 z-10
-    flex items-center justify-center gap-1.5
-    rounded-md
-    bg-blue-500
-    px-4 py-2.5
-    text-xs text-white
-    duration-150
-    hover:opacity-90
-    focus:ring-3
-    focus:ring-sky-500/40;
+    @apply absolute left-1.5 z-10 flex items-center justify-center gap-1.5 rounded-md bg-blue-500 px-4 py-2.5 text-xs text-white duration-150 hover:opacity-90 focus:ring-3 focus:ring-sky-500/40;
 }
 
 
@@ -250,21 +259,11 @@ textarea {
    ========================= */
 
 .user-order-card {
-    @apply relative
-    flex w-full items-start gap-10
-    overflow-hidden
-    rounded-md
-    border border-zinc-200
-    p-2
-    transition-all duration-150
-    hover:bg-zinc-50
-    h-58;
+    @apply relative flex w-full items-start gap-10 overflow-hidden rounded-md border border-zinc-200 p-2 transition-all duration-150 hover:bg-zinc-50 h-58;
 }
 
 .user-order-card .product-image {
-    @apply flex size-24 items-center justify-center
-    *:duration-500
-    group-hover:*:scale-90;
+    @apply flex size-24 items-center justify-center *:duration-500 group-hover:*:scale-90;
 }
 
 .user-order-card .content {
@@ -277,27 +276,7 @@ textarea {
    ========================= */
 
 .language-dropdown {
-    @apply absolute top-[110%] z-0
-    w-[150px]
-    rounded-md
-    border border-zinc-200
-    bg-white
-    p-2
-    shadow-lg
-    transition-all duration-300
-    *:flex
-    *:w-full
-    *:items-center
-    *:justify-between
-    *:gap-1.5
-    *:rounded-md
-    *:px-4
-    *:py-2
-    *:text-sm
-    *:font-normal
-    *:transition-all
-    *:duration-150
-    *:hover:bg-zinc-100;
+    @apply absolute top-[110%] z-0 w-[150px] rounded-md border border-zinc-200 bg-white p-2 shadow-lg transition-all duration-300 *:flex *:w-full *:items-center *:justify-between *:gap-1.5 *:rounded-md *:px-4 *:py-2 *:text-sm *:font-normal *:transition-all *:duration-150 *:hover:bg-zinc-100;
 }
 
 
@@ -306,15 +285,13 @@ textarea {
    ========================= */
 
 label {
-    @apply relative cursor-pointer select-none
-    text-xs text-zinc-500
-    after:content-[":"] ;
+    @apply relative cursor-pointer select-none text-xs text-zinc-500 after:content-[":"];
 }
 
-label:hover + input {
+label:hover+input {
     @apply ring-3 ring-offset-2 ring-blue-500/20;
 }
 
-label + input {
+label+input {
     @apply transition-all duration-150;
 }
