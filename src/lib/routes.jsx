@@ -30,21 +30,21 @@ const router = createBrowserRouter([
             { path: "cart", element: <CartPage /> },
             { path: "product/:productID", element: <ProductPage /> },
             { path: "blog/:blogID", element: <BlogPage /> },
-            {
-                path: "auth",
-                element: <AuthLayout />,
-                children: [
-                    { index: true, element: <AuthPage /> }
-                ]
-            },
-
+            
             { path: "forbidden", element: <Forbidden /> },
             { path: '*', element: <NotFound /> },
-
+            
             { path: "Test", element: <Test /> },
-
         ],
     },
+    {
+        path: "auth",
+        element: <AuthLayout />,
+        children: [
+            { index: true, element: <AuthPage /> }
+        ]
+    },
+    
     {
         path: 'dashboard',
         element: <CMSLayout />,

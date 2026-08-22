@@ -145,16 +145,12 @@ const products = [
                 {products.map((product, index) => (
                     <SwiperSlide
                         key={index}
-                        className="!w-[280px] sm:!w-[300px]"
+                        className="w-70! sm:w-75!"
                     >
                         <ProductCard {...product} />
                     </SwiperSlide>
                 ))}
             </Swiper>
-
-
-
-
         </section >
     );
 };

@@ -1,12 +1,15 @@
 import { Link } from "react-router";
 import { useAuth } from "../Hooks/useAuth";
+import { MessageCircleCheck, Phone, SendHorizontal, ShieldCheck } from "lucide-react";
+import Button from "../Components/Ui/‌Btn";
+import Input from "../Components/Ui/Input";
 
 const LoginPage = () => {
 
     const {
         phone,
         otp,
-        isSentOtp,
+        isOtpSent,
         handlePhoneChange,
         handleOtpChange,
         handleSubmit,
@@ -23,41 +26,78 @@ const LoginPage = () => {
         >
             {/* form header */}
             <header className="text-center flex items-center justify-center flex-col gap-2">
-                <h1 className="font-bold text-zinc-700 text-xl">خوش برگشتید.</h1>
+                <h1 className="font-bold text-zinc-700 text-xl">
+                    {" "}
+                    <span className="text-primary-500">ثبت‌ نام</span>
+                    {" "}
+                    یا
+                    {" "}
+                    <span className="text-primary-500">ورود</span>
+                    {" "}
+                    به حساب کاربری
+                </h1>
 
                 <div className="flex font-medium items-center gap-1 text-sm text-neutral-500">
-                    <span>ثبت‌نام یا ورود</span>
                 </div>
             </header>
             {/* main */}
-            <main className="space-y-3">
+            <main className="flex-center flex-col  gap-3">
 
-                {!isSentOtp ?
+                {!isOtpSent ?
                     <>
+                        {/* icon */}
+                        <div className="flex-center size-15 bg-primary-50 text-primary-500 rounded-full">
+                            <Phone />
+                        </div>
                         {/* phone Input */}
-                        <p className="text-xs font-normal text-neutral-600">
+                        <p className="text-sm font-bold">
                             لطفا شماره موبایل خود را وارد کنید
                         </p>
-                        <input
-                            className="auth-input"
-                            dir="ltr"
-                            placeholder="09123456789"
+                        <p className="text-xs text-secondary-500">
+                            کد تایید به این شماره ارسال خواهد شد
+                        </p>
+
+                        <Input
                             value={phone}
                             onChange={(e) => handlePhoneChange(e.target.value)}
+                            name="phone"
+                            type="tel"
+                            placeholder="۰۹۱۲۲۳۴۵۶۷۸"
+                            icon={<Phone size={18} />}
+                            textAlign="left"
+                            iconPosition="left"
                         />
+
                     </>
 
                     :
                     <>
-                        <div className="flex items-center justify-center gap-1">
+                        <div className="flex flex-col items-center justify-center gap-3">
+
+                            {/* icon */}
+                            <div className="flex-center size-15 bg-primary-50 text-primary-500 rounded-full">
+                                <MessageCircleCheck />
+                            </div>
+                            {/* phone Input */}
+                            <p className="text-sm font-bold">
+                                لطفا کد تایید را وارد کنید
+                            </p>
+                            <p className="text-xs text-secondary-500">
+                                کد تایید به شماره XXX ارسال شد
+                            </p>
+
                             {/* otp Input */}
-                            <input
-                                className="auth-input text-center"
-                                type="text"
-                                dir="ltr"
-                                placeholder="کد تایید"
-                                value={otp}
+       
+                            <Input
+                                 value={otp}
                                 onChange={(e) => handleOtpChange(e.target.value)}
+
+                                name="otp"
+                                type="text"
+                                placeholder="کد تایید"
+                                icon={<Phone size={18} />}
+                                textAlign="center"
+                                iconPosition="left"
                             />
 
                         </div>
@@ -84,26 +124,41 @@ const LoginPage = () => {
 
             {/* form Footer - btn */}
             <footer className="space-y-3 flex items-center justify-center flex-col">
-                <button 
-                className={`h-10 text-sm flex items-center w-full duration-150 hover:bg-blue-600/80 cursor-pointer justify-center bg-blue-600 text-white rounded-lg focus-within:ring-4 ring-blue-500/40 active:scale-100! hover:scale-103 hover:shadow-lg shadow-blue-500/30 
-                  ${isExpired && isSentOtp && "opacity-50 cursor-not-allowed"}
-                     
-                `}
-                disabled={isExpired && isSentOtp}
+                <Button
+                    type="submit"
+                    variant="dark"
+                    className={"w-full"}
+                    icon={isOtpSent ? <ShieldCheck /> : <SendHorizontal className="rotate-180" />}
+                    iconSize={"md"}
+                    iconPosition={isOtpSent ? "right" : "left"}
+                    iconHover={isOtpSent ? "scale" : "translate"}
+                    disabled={isExpired && isOtpSent}
                 >
-                    {isSentOtp ? 'ثبت کد' : ' ارسال کد'}
-                </button>
+                    {isOtpSent ? "ثبت کد" : "ارسال کد تایید"}
+                </Button>
+
+
+
+
                 <div className="space-y-1 text-center mt-4">
                     <p className="text-center text-xs text-zinc-500">
-                        شما با ثبت نام قوانین وبسایت را قبول می‌کنید.
+                        ورود به منزله پذیرش{" "}
+                        <span className="text-primary-500">
+                            شرایط و قوانین
+                        </span>{" "}
+                        تکنولند است.
                     </p>
                     <Link
-                        className="text-blue-500 text-center mx-auto max-w-max! text-xs"
+                        className="text-primary-500 text-center mx-auto max-w-max! text-xs"
                         to={"/"}
                     >
                         بازگشت
                     </Link>
                 </div>
+
+
+
+
             </footer>
         </form>
     );

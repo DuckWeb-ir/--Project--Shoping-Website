@@ -13,7 +13,7 @@ export const useAuth = () => {
 
     const [phone, setPhone] = useState("");
     const [otp, setOtp] = useState("");
-    const [isSentOtp, setIsSentOtp] = useState(false);
+    const [isOtpSent, setisOtpSent] = useState(false);
 
     const { getFormattedTime, restartTimer, isExpired } = useCountDown(120)
 
@@ -35,7 +35,7 @@ export const useAuth = () => {
         const data = await AuthService.sendOtpCode(phone)
         console.log("SendOtp:", data);
 
-        setIsSentOtp(true)
+        setisOtpSent(true)
 
         restartTimer()
 
@@ -46,7 +46,7 @@ export const useAuth = () => {
         const data = await AuthService.sendOtpCode(phone)
         console.log("SendOtp:", data);
 
-        setIsSentOtp(true)
+        setisOtpSent(true)
 
         restartTimer()
 
@@ -84,7 +84,7 @@ export const useAuth = () => {
 
         try {
 
-            if (isSentOtp) {
+            if (isOtpSent) {
                 await login()
 
             } else {
@@ -102,7 +102,7 @@ export const useAuth = () => {
     return {
         phone,
         otp,
-        isSentOtp,
+        isOtpSent,
         handlePhoneChange,
         handleOtpChange,
         handleSubmit,
