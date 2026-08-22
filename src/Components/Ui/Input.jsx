@@ -116,7 +116,8 @@ const Input = ({
                         "bg-transparent",
                         "text-sm text-secondary-800",
                         "outline-none",
-                        "placeholder:text-gray-400",
+                        "placeholder:text-secondary-400 text-sm ",
+                        
 
                         inputAlign[textAlign],
 

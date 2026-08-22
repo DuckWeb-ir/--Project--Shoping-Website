@@ -18,6 +18,7 @@ import Forbidden from "../Pages/Forbiden.jsx";
 import NotFound from "../Pages/NotFound.jsx";
 import ModeratorProducts from "../Pages/Dashboard/moderator/products/page.jsx";
 import Test from "../Pages/Test.jsx";
+import Contact from "../Components/Contact/index.jsx";
 
 const router = createBrowserRouter([
     {
@@ -26,7 +27,12 @@ const router = createBrowserRouter([
         children: [
             { index: true, element: <HomePage /> },
             { path: "about-us", element: <AboutUSPage /> },
+
+
             { path: "contact-us", element: <ContactUSPage /> },
+            { path: "contact", element: <Contact /> },
+
+
             { path: "cart", element: <CartPage /> },
             { path: "product/:productID", element: <ProductPage /> },
             { path: "blog/:blogID", element: <BlogPage /> },

@@ -34,7 +34,7 @@ function Maps() {
                 {/* Map info */}
                 <div>
                     <SectionTitle text="شعبه اول: تبریز" />
-                    <div className="flex-ic mt-5 text-xl text-neutral-600 font-bold gap-2">
+                    <div className="flex-icz mt-5 text-xl text-neutral-600 font-bold gap-2">
                         <CiLocationOn />
                         <p>تبریز، زعفرانیه، خیابان پاستور و ...</p>
                     </div>

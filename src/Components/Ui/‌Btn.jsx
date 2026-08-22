@@ -13,6 +13,8 @@ const buttonVariants = {
 
     outline:
         "border border-gray-200 bg-white text-gray-700 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-600",
+    cancel:
+        "bg-red-50 text-red-600 hover:bg-red-100",
 };
 
 const buttonSizes = {
