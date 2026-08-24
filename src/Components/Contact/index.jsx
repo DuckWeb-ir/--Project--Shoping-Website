@@ -1,4 +1,4 @@
-import { Clock, Map, MapPin, MapPinned, MessageCircleOff, MessageCircleQuestionMark, MessageSquareX, Navigation, Phone, Send, UserRound } from 'lucide-react'
+import { ChevronLeft, Clock, GlobeCheck, Map, MapPin, MapPinned, MessageCircleOff, MessageCircleQuestionMark, MessageSquareX, Navigation, Phone, Send, UserRound } from 'lucide-react'
 import React from 'react'
 import Input from '../Ui/Input'
 import Textarea from '../Ui/Textarea'
@@ -6,24 +6,28 @@ import Button from '../Ui/‌Btn'
 import SectionTitle from '../Common/SectionTitle'
 import Maps from './Maps'
 
+import contactusImg from '../../../public/assets/static/contactus.png'
+
 function Contact() {
     return (
         <div className='container mt-20 '>
 
 
             {/* Header */}
-            <div className="flex-ic justify-between w-full px-10">
+            <div className="flex-ic justify-between w-full py-2 px-10 bg-gradient-to-br from-primary-50 via-primary-100 to-primary-200 rounded-2xl">
                 {/* Header content */}
                 <div className="flex-center flex-col gap-5 w-110">
-                    <h2 className='font-extrabold text-4xl'>با ما در ارتباط باشید</h2>
+                    <h2 className='font-extrabold text-4xl '>با ما در ارتباط باشید</h2>
                     <div className="w-10 h-0.5 bg-primary-500"></div>
                     <div className="text-center ">
-                        تیم بشتيبانى تكنولتد هميشه آماده باسخگویی به سوالات و اریه
+                        تیم پشتيبانى تكنولند هميشه آماده باسخگویی به سوالات و اریه
                         بهترين راه حل ها براى شماست.
                     </div>
                 </div>
                 {/* img */}
-                <div className="size-50 bg-primary-400"></div>
+                <div className="w-80 flex-center">
+                    <img src={contactusImg} alt="" />
+                </div>
             </div>
 
 
@@ -100,7 +104,82 @@ function Contact() {
 
 
                     {/* contact Way */}
-                    <div className="w-1/2 min-h-110 bg-primary-200">
+                    <div className="w-1/2 rounded-2xl shadow-card-md p-10 bg-white">
+
+                        {/* card header */}
+                     
+                            <div className="flex-center gap-1.5 mb-3">
+                                <GlobeCheck className='text-primary-500' />
+                                <div className="font-bold text-lg "> ارتباط غیرحضوری </div>
+                            </div>
+                 
+
+                        {/* 1 */}
+                        <div className="grid grid-cols-4 gap-2">
+                            <div className="    shadow-card-md border border-secondary-100 rounded-xl overflow-hidden">
+                                <div className="flex-center flex-col gap-2 p-5">
+                                    <div className="size-15 rounded-full flex-center bg-primary-50 text-primary-600">
+                                        <Phone />
+                                    </div>
+                                    <h3 className='text-lg font-bold' >تماس تلفنی </h3>
+                                    <h3 className='text-lg font-bold text-primary-500' >۰۲۱-۲۳۴۵۶۷۸</h3>
+                                    <p className='text-xs text-secondary-500'>همه روزه از ۸ صبح تا ۱۸ </p>
+                                </div>
+                                <div className="flex-center gap-1 w-full h-10 bg-primary-50 border border-primary-100 text-primary-500">
+                                    <Phone size={12} />
+                                    <p className='text-sm'>تماس بگیرید</p>
+                                    <ChevronLeft size={15} />
+                                </div>
+                            </div>
+                            <div className="   shadow-card-md border border-secondary-100 rounded-xl overflow-hidden">
+                                <div className="flex-center flex-col gap-2 p-5">
+                                    <div className="size-15 rounded-full flex-center bg-primary-50 text-primary-600">
+                                        <Phone />
+                                    </div>
+                                    <h3 className='text-lg font-bold' >ایمیل </h3>
+                                    <h3 className='text-lg font-bold text-primary-500' >info@technoland.ir</h3>
+                                    <p className='text-xs text-secondary-500'> پاسخگو در کمتر از ٢۴ ساعت</p>
+                                </div>
+                                <div className="flex-center gap-1 w-full h-10 bg-primary-50 border border-primary-100 text-primary-500">
+                                    <Phone size={12} />
+                                    <p className='text-sm'>ارسال ايميل</p>
+                                    <ChevronLeft size={15} />
+                                </div>
+                            </div>
+                            <div className="   shadow-card-md border border-secondary-100 rounded-xl overflow-hidden">
+                                <div className="flex-center flex-col gap-2 p-5">
+                                    <div className="size-15 rounded-full flex-center bg-primary-50 text-primary-600">
+                                        <Phone />
+                                    </div>
+                                    <h3 className='text-lg font-bold' >واتساپ</h3>
+                                    <h3 className='text-lg font-bold text-primary-500' >0912 123 4567</h3>
+                                    <p className='text-xs text-secondary-500'>پاسخکوی سریع در واتساپ </p>
+                                </div>
+                                <div className="flex-center gap-1 w-full h-10 bg-primary-50 border border-primary-100 text-primary-500">
+                                    <Phone size={12} />
+                                    <p className='text-sm'>چت در واتساب</p>
+                                    <ChevronLeft size={15} />
+                                </div>
+                            </div>
+                            <div className="   shadow-card-md border border-secondary-100 rounded-xl overflow-hidden">
+                                <div className="flex-center flex-col gap-2 p-5">
+                                    <div className="size-15 rounded-full flex-center bg-primary-50 text-primary-600">
+                                        <Phone />
+                                    </div>
+                                    <h3 className='text-lg font-bold' >چت آنلاین</h3>
+                                    <h3 className='text-lg font-bold text-primary-500' >شروع كفت وكو</h3>
+                                    <p className='text-xs text-secondary-500'>پاسخ فوری در چت آنلاین </p>
+                                </div>
+                                <div className="flex-center gap-1 w-full h-10 bg-primary-50 border border-primary-100 text-primary-500">
+                                    <Phone size={12} />
+                                    <p className='text-sm'>كفت وكو را شروع كنيد</p>
+                                    <ChevronLeft size={15} />
+                                </div>
+                            </div>
+
+                        </div>
+
+
 
                     </div>
                 </div>
@@ -146,7 +225,7 @@ function Contact() {
                                 </div>
                             </div>
                             {/* Location Map */}
-                            <div className=" size-full border border-secondary-600 rounded-2xl overflow-hidden">
+                            <div className=" size-full border border-secondary-300 rounded-2xl overflow-hidden">
                                 <Maps position={[38.04238655623606, 46.33910896342169]} popup={"دفتر تکنولند - شعبه"} />
                             </div>
                         </div>
@@ -179,7 +258,7 @@ function Contact() {
                                 </div>
                             </div>
                             {/* Location Map */}
-                            <div className=" size-full border border-secondary-600 rounded-2xl overflow-hidden">
+                            <div className=" size-full border border-secondary-300 rounded-2xl overflow-hidden">
                                 <Maps position={[38.04238655623606, 46.33910896342169]} popup={"دفتر تکنولند - شعبه"} />
                             </div>
                         </div>
