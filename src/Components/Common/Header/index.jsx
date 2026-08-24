@@ -10,7 +10,7 @@ function Header() {
 
 
     return (
-        <header className='bg-white'>
+        <header className='bg-white  '>
             <HeaderTop />
             <HeaderNav />
         </header>

@@ -112,7 +112,7 @@ const Input = ({
                     disabled={disabled}
                     required={required}
                     className={clsx(
-                        "h-full min-w-0 flex-1",
+                        "h-full w-full flex-1",
                         "bg-transparent",
                         "text-sm text-secondary-800",
                         "outline-none",
