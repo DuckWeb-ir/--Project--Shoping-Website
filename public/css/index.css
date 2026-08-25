@@ -115,7 +115,7 @@ body {
 
 /* Site Container */
 @utility container {
-    @apply mx-auto w-[90%] md:w-full;
+    @apply mx-auto w-[90%] md:w-full sm:px-3;
 }
 
 
