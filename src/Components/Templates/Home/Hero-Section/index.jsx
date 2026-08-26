@@ -4,7 +4,7 @@ import HeroSlider from './Fragments/‌HeroSlider'
 
 function HeroSection() {
     return (
-        <section className="container relative overflow-hidden rounded-3xl min-h-150 mt-2.5">
+        <section className="relative overflow-hidden rounded-3xl min-h-150 mt-2.5">
             {/* Slider / Images */}
             <div className="">
                 <HeroSlider />

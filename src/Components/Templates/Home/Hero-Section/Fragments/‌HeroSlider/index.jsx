@@ -24,7 +24,7 @@ const HeroSlider = () => {
   ];
 
   return (
-    <section className="container m-auto  h-150  rounded-2xl overflow-hidden">
+    <section className=" m-auto  h-150  rounded-2xl overflow-hidden">
 
       <Swiper
         loop={true}
