@@ -6,6 +6,7 @@ import useProductForm from "../../../../../Hooks/useProductForm";
 import { useEffect, useState } from "react";
 import createProduct from "../../../../../Services/Product.service";
 import { toast } from "sonner";
+import DynamicKeyValueFields from "./DynamicKeyValueFields";
 
 const ProductDrawer = ({ isOpen, onToggle }) => {
 
@@ -92,6 +93,21 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
                     type="file"
                 />
 
+                <DynamicKeyValueFields
+                    title='ویژگی های فیلتری'
+                    items={form.filterValues}
+                    onAdd={() => addPair("filterValues")}
+                    onRemove={(index) => removePair("filterValues", index)}
+                    onChange={(index, key, value) => updatePair("filterValues", index, key, value)}
+                />
+
+                <DynamicKeyValueFields
+                    title='ویژگی های سفارشی'
+                    items={form.customFields}
+                    onAdd={() => addPair("customFields")}
+                    onRemove={(index) => removePair("customFields", index)}
+                    onChange={(index, key, value) => updatePair("customFields", index, "key", value)}
+                />
 
                 <div>
                     <label htmlFor="product-details"> دسته بندی  </label>
@@ -106,8 +122,6 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
 
                     }
                 </div>
-
-
 
                 <div>
                     <label htmlFor="product-details"> توضیحات محصول </label>
