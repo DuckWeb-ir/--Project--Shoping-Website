@@ -8,6 +8,7 @@ import createProduct from "../../../../../Services/Product.service";
 import { toast } from "sonner";
 import DynamicKeyValueFields from "./DynamicKeyValueFields";
 import SellerFields from "./SellerField";
+import ImageUploadField from "./ImageUploadField";
 
 const ProductDrawer = ({ isOpen, onToggle }) => {
 
@@ -119,6 +120,11 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
                     onAdd={() => addPair("customFields")}
                     onRemove={(index) => removePair("customFields", index)}
                     onChange={(index, key, value) => updatePair("customFields", index, "key", value)}
+                />
+
+                <ImageUploadField
+                    files={form.images}
+                    onChange={form.setImages}
                 />
 
 
