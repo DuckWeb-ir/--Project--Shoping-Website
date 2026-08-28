@@ -124,7 +124,7 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
 
                 <ImageUploadField
                     files={form.images}
-                    onChange={form.setImages}
+                    onChange={setImages}
                 />
 
 

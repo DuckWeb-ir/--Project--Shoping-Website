@@ -10,11 +10,20 @@ const ImageUploadField = ({ files, onChange }) => {
     const inputRef = useRef(null);
 
     const handleFiles = (e) => {
-        //
+        const selectedImage = Array.from(e.target.files)
+        const remaningImage = MAX_IMAGE - files.length
+        const imagesToAdd = selectedImage.slice(0, remaningImage)
+
+        onChange([...files, ...imagesToAdd])
+
+        console.log(imagesToAdd);
+
+
     };
 
     const removeFile = (index) => {
-        //
+        const UpdateFiles = files.filter((_, i) => i !== index)
+        onChange(UpdateFiles)
     };
 
     return (
@@ -36,7 +45,7 @@ const ImageUploadField = ({ files, onChange }) => {
                 className="hidden"
                 multiple
                 onChange={handleFiles}
-                accept="images/*"
+                accept="image/*"
             />
 
 
@@ -50,7 +59,7 @@ const ImageUploadField = ({ files, onChange }) => {
                         className="relative aspect-square rounded-md overflow-hidden primary-border group"
                     >
                         <img
-                            src="https://storage.sabzlearn.ir/legacy-statics/2025/11/ReactJS-Course.webp"
+                            src={URL.createObjectURL(file)}
                             className="w-full h-full object-cover"
                             alt=""
                         />
