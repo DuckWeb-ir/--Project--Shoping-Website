@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import createProduct from "../../../../../Services/Product.service";
 import { toast } from "sonner";
 import DynamicKeyValueFields from "./DynamicKeyValueFields";
+import SellerFields from "./SellerField";
 
 const ProductDrawer = ({ isOpen, onToggle }) => {
 
@@ -93,6 +94,17 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
                     type="file"
                 />
 
+                {/* Sellers */}
+
+                <SellerFields
+                    sellers={form.sellers}
+                    onAdd={addSeller}
+                    onRemove={removeSeller}
+                    onChange={updateSeller}
+
+                />
+
+                {/* Key Value */}
                 <DynamicKeyValueFields
                     title='ویژگی های فیلتری'
                     items={form.filterValues}
@@ -108,6 +120,7 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
                     onRemove={(index) => removePair("customFields", index)}
                     onChange={(index, key, value) => updatePair("customFields", index, "key", value)}
                 />
+
 
                 <div>
                     <label htmlFor="product-details"> دسته بندی  </label>
