@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BiImageAdd } from "react-icons/bi";
 import { HiX } from "react-icons/hi";
 
@@ -8,6 +8,8 @@ const ImageUploadField = ({ files, onChange }) => {
 
     const isFull = files.length >= MAX_IMAGE
     const inputRef = useRef(null);
+
+    const [previewUrl, setPreviewUrl] = useState([])
 
     const handleFiles = (e) => {
         const selectedImage = Array.from(e.target.files)
@@ -25,6 +27,21 @@ const ImageUploadField = ({ files, onChange }) => {
         const UpdateFiles = files.filter((_, i) => i !== index)
         onChange(UpdateFiles)
     };
+
+    useEffect((() => {
+
+        const Urls = files.map((file) => URL.createObjectURL(file))
+
+        setPreviewUrl(Urls)
+
+        return () => {
+            Urls.forEach((url) => URL.revokeObjectURL(url))
+        }
+
+    }), [files])
+
+
+
 
     return (
         <div>
@@ -52,14 +69,14 @@ const ImageUploadField = ({ files, onChange }) => {
             {/* Image Upload Grid */}
             <div className="grid grid-cols-4 gap-2">
                 {/* Images Preview */}
-                {files.map((file, index) => (
+                {previewUrl.map((url, index) => (
 
                     <div
                         key={index}
                         className="relative aspect-square rounded-md overflow-hidden primary-border group"
                     >
                         <img
-                            src={URL.createObjectURL(file)}
+                            src={url}
                             className="w-full h-full object-cover"
                             alt=""
                         />
