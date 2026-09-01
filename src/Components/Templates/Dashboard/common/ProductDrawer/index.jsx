@@ -43,15 +43,18 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
     const handleSubmit = async () => {
 
         if (!form.name.trim() || !form.slug.trim() || !form.description.trim()) {
-            setError("عنوان و لینک محصول الزامی هستن");
-            console.log(error);
+            const message = "عنوان و لینک محصول و توضیحات الزامی هستن";
+
+            setError(message);
+            toast(message);
             return;
         }
 
         if (!selectedCategory) {
-            setError("انتخاب دسته‌بندی محصول الزامی هست");
-            console.log(error);
+            const message = "انتخاب دسته‌بندی محصول الزامی هست";
 
+            setError(message);
+            toast(message);
             return;
         }
         setIsSubmitting(true);
@@ -61,6 +64,7 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
             await createProduct(buildFormData());
             resetForm();
             toast.success("محصول با موفقیت ایجاد شد");
+            onToggle()
         } catch (err) {
             setError(err.response?.data?.message || "خطایی رخ داده است");
         }
@@ -89,11 +93,7 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
                     onChange={(e) => setField("slug", e.target.value)}
                 />
 
-                <ProductDrawerInput
-                    label="تصویر محصول"
-                    placeholder="iphone-17-promax"
-                    type="file"
-                />
+
 
                 {/* Sellers */}
 
@@ -115,19 +115,22 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
                 />
 
                 <DynamicKeyValueFields
-                    title='ویژگی های سفارشی'
+                    title="ویژگی های سفارشی"
                     items={form.customFields}
                     onAdd={() => addPair("customFields")}
                     onRemove={(index) => removePair("customFields", index)}
-                    onChange={(index, key, value) => updatePair("customFields", index, "key", value)}
+                    onChange={(index, key, value) => updatePair("customFields", index, key, value)}
                 />
 
+
+                {/* Image Upload */}
                 <ImageUploadField
                     files={form.images}
                     onChange={setImages}
                 />
 
 
+                {/* category */}
                 <div>
                     <label htmlFor="product-details"> دسته بندی  </label>
 
@@ -141,6 +144,7 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
 
                     }
                 </div>
+
 
                 <div>
                     <label htmlFor="product-details"> توضیحات محصول </label>

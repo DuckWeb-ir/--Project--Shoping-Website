@@ -62,7 +62,7 @@ const router = createBrowserRouter([
 
                         const { data } = await AuthService.getMe();
                         console.log(data);
-                        if (!data.user.roles.includes('USER')) { // ADMIN
+                        if (!data.user.roles.includes('ADMIN')) { 
                             return redirect('/forbidden')
                         }
 
