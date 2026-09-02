@@ -46,7 +46,7 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
             const message = "عنوان و لینک محصول و توضیحات الزامی هستن";
 
             setError(message);
-            toast(message);
+            toast.error(message);
             return;
         }
 
@@ -54,7 +54,7 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
             const message = "انتخاب دسته‌بندی محصول الزامی هست";
 
             setError(message);
-            toast(message);
+            toast.error(message);
             return;
         }
         setIsSubmitting(true);

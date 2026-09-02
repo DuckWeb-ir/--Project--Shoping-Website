@@ -8,10 +8,15 @@ import ProductDrawer from "../../../common/ProductDrawer";
 import TableBody from "../../../common/Table/TableBody";
 import TableHead from "../../../common/Table/TableHead";
 import TableToolbar from "../../../common/Table/TableToolbar";
+import useProduct from "../../../../../../Hooks/useProduct";
 
 const ModeratorProductsTable = () => {
     const [isDrawerShow, setIsDrawerShow] = useState(false);
     const toggleDrawer = () => setIsDrawerShow((prev) => !prev);
+
+    const { products, pagination, page, setPage, isLoading, error } = useProduct();
+
+    console.log(products);
 
     return (
         <>
