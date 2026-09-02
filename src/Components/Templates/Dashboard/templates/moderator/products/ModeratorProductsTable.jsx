@@ -9,6 +9,7 @@ import TableBody from "../../../common/Table/TableBody";
 import TableHead from "../../../common/Table/TableHead";
 import TableToolbar from "../../../common/Table/TableToolbar";
 import useProduct from "../../../../../../Hooks/useProduct";
+import { formatPrice, getDisplayPrice } from "../../../../../../lib/helper/price";
 
 const ModeratorProductsTable = () => {
     const [isDrawerShow, setIsDrawerShow] = useState(false);
@@ -70,13 +71,26 @@ const ModeratorProductsTable = () => {
                             </TableCell>
                         </TableRow>
                     )}
-                    {!isLoading && !error && products.map((product) => (
-                        <TableRow>
-                            <TableCell>{product.shortIdentifier}</TableCell>
-                            <TableCell>{product.name} </TableCell>
-                            <TableCell>{400_000_000} تومان</TableCell>
-                        </TableRow>
-                    ))}
+                    {!isLoading && !error && products.map((product) => {
+
+                        const { price, hasMultipleSellers } = getDisplayPrice(product.sellers,);
+
+                        return (
+                            <TableRow key={product._id}>
+                                <TableCell>{product.shortIdentifier}</TableCell>
+                                <TableCell>{product.name}</TableCell>
+                                <TableCell>
+                                    <>
+                                        {formatPrice(price)} تومان{" "}
+                                        {hasMultipleSellers && "(بیش از یک فروشنده)"}
+                                    </>
+                                </TableCell>
+                            </TableRow>
+                        );
+                    })}
+
+
+
                 </TableBody>
             </Table>
 
