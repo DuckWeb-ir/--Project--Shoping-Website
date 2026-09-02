@@ -1,4 +1,4 @@
-import useCategory from "../../../../../Hooks/useCategory";
+import useCategories from "../../../../../Hooks/useCategories";
 import Drawer from "../Drawer";
 import ProductDrawerInput from "./ProductDrawerInput";
 import CascadeCategories from "./CascadeCategories"
@@ -13,7 +13,7 @@ import ImageUploadField from "./ImageUploadField";
 const ProductDrawer = ({ isOpen, onToggle }) => {
 
 
-    const { categories, isLoading: isCategoryLoading } = useCategory()
+    const { categories, isLoading: isCategoryLoading } = useCategories()
     const [error, setError] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
