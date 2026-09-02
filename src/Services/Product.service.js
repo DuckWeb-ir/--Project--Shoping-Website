@@ -22,9 +22,14 @@ const createProduct = async (formData) => {
 
 
 export const getAllProducts = async (params) => {
-  const { data } = await api.get("/products", { params });
+    const { data } = await api.get("/products", { params });
 
-  return data;
+    return data;
+};
+export const removeProducts = async (id) => {
+    const { data } = await api.delete(`/products/${id}`,);
+
+    return data;
 };
 
 export default createProduct;

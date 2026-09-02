@@ -3,21 +3,44 @@ import TableCell from "../../../common/Table/TableCell";
 import TableRow from "../../../common/Table/TableRow";
 
 import { useState } from "react";
-import { BiPlus } from "react-icons/bi";
+import { BiPencil, BiPlus, BiTrash } from "react-icons/bi";
 import ProductDrawer from "../../../common/ProductDrawer";
 import TableBody from "../../../common/Table/TableBody";
 import TableHead from "../../../common/Table/TableHead";
 import TableToolbar from "../../../common/Table/TableToolbar";
 import useProduct from "../../../../../../Hooks/useProduct";
 import { formatPrice, getDisplayPrice } from "../../../../../../lib/helper/price";
+import Confirm from "../../../../../Common/Confirm";
+import { removeProducts } from "../../../../../../Services/Product.service";
+import { toast } from "sonner";
 
 const ModeratorProductsTable = () => {
     const [isDrawerShow, setIsDrawerShow] = useState(false);
     const toggleDrawer = () => setIsDrawerShow((prev) => !prev);
 
-    const { products, pagination, page, setPage, isLoading, error } = useProduct();
+    const { products, pagination, page, setPage, isLoading, error, reFetch } = useProduct();
 
-    console.log(products);
+
+    // remove Product
+    const [deletingProduct, setDeletingProduct] = useState(null)
+    const [isDeleting, setIsdeleting] = useState(false)
+
+    const handleRemove = async () => {
+        setIsdeleting(true)
+        try {
+            await removeProducts(deletingProduct._id)
+            toast.success('حذف با موفقیت انجام شد ')
+            setDeletingProduct(null)
+            reFetch()
+
+        } catch (error) {
+            toast.error(error?.response?.data.message || "خطا در حذف محصول ")
+        } finally {
+            setIsdeleting(false)
+        }
+
+    };
+
 
     return (
         <>
@@ -44,7 +67,7 @@ const ModeratorProductsTable = () => {
                         <TableCell>شناسه</TableCell>
                         <TableCell>عنوان</TableCell>
                         <TableCell>مبلغ</TableCell>
-                        <TableCell>وضعیت</TableCell>
+                        <TableCell>عملیات</TableCell>
                     </TableRow>
                 </TableHead>
 
@@ -85,6 +108,22 @@ const ModeratorProductsTable = () => {
                                         {hasMultipleSellers && "(بیش از یک فروشنده)"}
                                     </>
                                 </TableCell>
+                                <TableCell>
+                                    <button
+                                        className="text-blue-500 hover:bg-blue-50 p-2 rounded-md"
+                                        title="ویرایش"
+                                    >
+                                        <BiPencil />
+                                    </button>
+
+                                    <button
+                                        className="text-red-500 hover:bg-blue-50 p-2 rounded-md"
+                                        title="حذف"
+                                        onClick={() => setDeletingProduct(product)}
+                                    >
+                                        <BiTrash />
+                                    </button>
+                                </TableCell>
                             </TableRow>
                         );
                     })}
@@ -114,6 +153,16 @@ const ModeratorProductsTable = () => {
                     </button>
                 </div>
             )}
+
+            <Confirm
+                isOpen={!!deletingProduct}
+                title="حذف محصول"
+                description={`آیا از حذف محصول ${deletingProduct?.name} مطمئن هستید؟ این عمل غیر قابل بازگشت است`}
+                onConfirm={handleRemove}
+                onCancel={() => setDeletingProduct(null)}
+                isLoading={isDeleting}
+            />
+
 
             {isDrawerShow && <ProductDrawer isOpen={isDrawerShow} onToggle={toggleDrawer} />}
 

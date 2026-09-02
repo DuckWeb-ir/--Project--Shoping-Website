@@ -35,6 +35,7 @@ const useProduct = (limit = 10) => {
         setPage,
         isLoading,
         error,
+        reFetch : fetchProduct
     }
 
 }
