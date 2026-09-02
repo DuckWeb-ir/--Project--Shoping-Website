@@ -19,6 +19,7 @@ import NotFound from "../Pages/NotFound.jsx";
 import ModeratorProducts from "../Pages/Dashboard/moderator/products/page.jsx";
 import Test from "../Pages/Test.jsx";
 import Contact from "../Components/Contact/index.jsx";
+import ModeratorCategories from "../Pages/Dashboard/moderator/Categories/page.jsx";
 
 const router = createBrowserRouter([
     {
@@ -78,6 +79,7 @@ const router = createBrowserRouter([
                     { path: 'home', element: <div>moderator home D</div> },
                     { path: 'orders', element: <div>moderator orders D</div> },
                     { path: 'products', element: <ModeratorProducts/> },
+                    { path: 'categories', element: <ModeratorCategories/> },
                 ]
             },
             {

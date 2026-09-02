@@ -21,6 +21,13 @@ const ModeratorLinks = () => {
         label="محصولات"
       />
       <NavItem
+        bgColor="bg-green-500"
+        iconColor="text-green-500"
+        icon={<BsBox2 />}
+        href="/dashboard/moderator/categories"
+        label="دسته بندی ها "
+      />
+      <NavItem
         bgColor="bg-orange-500"
         iconColor="text-orange-500"
         icon={<FaTruckArrowRight />}
