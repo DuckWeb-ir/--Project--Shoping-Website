@@ -23,10 +23,10 @@ const ModeratorProductsTable = () => {
 
     // remove Product
     const [deletingProduct, setDeletingProduct] = useState(null)
-    const [isDeleting, setIsdeleting] = useState(false)
+    const [isDeleting, setIsDeleting] = useState(false)
 
     const handleRemove = async () => {
-        setIsdeleting(true)
+        setIsDeleting(true)
         try {
             await removeProducts(deletingProduct._id)
             toast.success('حذف با موفقیت انجام شد ')
@@ -36,7 +36,7 @@ const ModeratorProductsTable = () => {
         } catch (error) {
             toast.error(error?.response?.data.message || "خطا در حذف محصول ")
         } finally {
-            setIsdeleting(false)
+            setIsDeleting(false)
         }
 
     };
