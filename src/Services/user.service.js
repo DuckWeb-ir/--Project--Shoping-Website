@@ -1,16 +1,13 @@
-import api from "./api"
+import api from "./api";
 
-const getAllUsers = async(params) => {
+export const getAllUsers = async () => {
+  const { data } = await api.get("/users");
 
-    const { data } = await api.get("/users" , {params})
+  return data;
+};
 
-    return data
-}
+export const banUser = async (id) => {
+  const { data } = await api.post(`/users/ban/${id}`);
 
-
-const banUser = async(id) => {
-
-    const { data } = await api.post(`/users/ban/${id}` )
-
-    return data
-}
+  return data;
+};

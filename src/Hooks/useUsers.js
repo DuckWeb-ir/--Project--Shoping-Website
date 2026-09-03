@@ -3,19 +3,19 @@ import { getAllUsers } from "../Services/user.service"
 
 const useUsers = (limit = 10) => {
 
-    const [Users, setUsers] = useState([])
+    const [users, setUsers] = useState([])
     const [pagination, setPagination] = useState(null)
     const [page, setPage] = useState(1)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
 
-    const fetchUser = async () => {
+    const fetchUsers = async () => {
 
         setIsLoading(true)
         setError(null)
         try {
             const res = await getAllUsers({ page, limit })
-            setUsers(res?.data?.Users || []);
+            setUsers(res?.data?.users || []);
             setPagination(res?.data?.pagination || null);
         } catch (error) {
             setError('خطا در دریافت اطلاعات کاربران')
@@ -25,17 +25,17 @@ const useUsers = (limit = 10) => {
     }
 
     useEffect(() => {
-        fetchUser()
+        fetchUsers()
     }, [page, limit])
 
     return {
-        Users,
+        users,
         pagination,
         page,
         setPage,
         isLoading,
         error,
-        reFetch : fetchUser
+        reFetch : fetchUsers
     }
 
 }
