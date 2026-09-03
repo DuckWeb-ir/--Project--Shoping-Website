@@ -13,6 +13,7 @@ import { toPersianDate } from '../../../../../../lib/helper/date';
 import { banUser } from '../../../../../../Services/user.service';
 import { toast } from 'sonner';
 import Confirm from '../../../../../Common/Confirm';
+import Pagination from '../../../../../Common/Pagination';
 
 function ModeratorUsersTable() {
 
@@ -121,7 +122,8 @@ function ModeratorUsersTable() {
                     })}
                 </TableBody>
             </Table>
-لهف ش
+            {/* pagination  */}
+            <Pagination pagination={pagination} page={page} setPage={setPage}/>
             <Confirm
                 isOpen={!!banningUser}
                 title="بن کاربر"

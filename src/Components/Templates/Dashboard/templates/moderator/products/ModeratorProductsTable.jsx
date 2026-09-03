@@ -13,6 +13,7 @@ import { formatPrice, getDisplayPrice } from "../../../../../../lib/helper/price
 import Confirm from "../../../../../Common/Confirm";
 import { removeProducts } from "../../../../../../Services/Product.service";
 import { toast } from "sonner";
+import Pagination from "../../../../../Common/Pagination";
 
 const ModeratorProductsTable = () => {
     const [isDrawerShow, setIsDrawerShow] = useState(false);
@@ -129,30 +130,9 @@ const ModeratorProductsTable = () => {
                     })}
                 </TableBody>
             </Table>
+
             {/* pagination  */}
-            {pagination && pagination.totalPages > 1 && (
-                <div className="flex items-center justify-center gap-2 mt-4">
-                    <button
-                        className="px-3 py-1 rounded-md primary-border text-sm disabled:opacity-40"
-                        disabled={page <= 1}
-                        onClick={() => setPage((prev) => prev - 1)}
-                    >
-                        قبلی
-                    </button>
-
-                    <span className="text-sm text-zinc-500">
-                        صفحه {pagination.page} از {pagination.totalPages}
-                    </span>
-
-                    <button
-                        className="px-3 py-1 rounded-md primary-border text-sm disabled:opacity-40"
-                        disabled={page >= pagination.totalPages}
-                        onClick={() => setPage((prev) => prev + 1)}
-                    >
-                        بعدی
-                    </button>
-                </div>
-            )}
+            <Pagination pagination={pagination} page={page} setPage={setPage}/>
 
             <Confirm
                 isOpen={!!deletingProduct}
