@@ -58,7 +58,7 @@ export default function ProductCard(props) {
 
                     <div className=" flex gap-1 mt-2 overflow-hidden divide-x divide-primary-100 text-secondary-400">
 
-                        {props.specs.map((s) => (
+                        {/* {props.specs.map((s) => (
 
                             <span
                                 key={s}
@@ -67,7 +67,7 @@ export default function ProductCard(props) {
                                 {s}
                             </span>
 
-                        ))}
+                        ))} */}
 
                     </div>
 
@@ -79,7 +79,7 @@ export default function ProductCard(props) {
 
                         {/* Color */}
                         <div className="flex items-center justify-center h-full">
-                            {props.colors.map((color, index) => (
+                            {/* {props.colors.map((color, index) => (
                                 <div
                                     key={index}
                                     style={{
@@ -87,7 +87,7 @@ export default function ProductCard(props) {
                                     }}
                                     className={`size-4.5 rounded-full border border-gray-200 shadow-sm ${index > 0 ? "-mr-2" : ""}`}
                                 />
-                            ))}
+                            ))} */}
                         </div>
 
 

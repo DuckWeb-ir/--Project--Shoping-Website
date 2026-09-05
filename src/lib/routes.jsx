@@ -19,6 +19,7 @@ import NotFound from "../Pages/NotFound.jsx";
 import ModeratorProducts from "../Pages/Dashboard/moderator/products/page.jsx";
 import Test from "../Pages/Test.jsx";
 import Contact from "../Components/Contact/index.jsx";
+import NewProductPage from "../Pages/NewProductPage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
 
             { path: "cart", element: <CartPage /> },
             { path: "product/:productID", element: <ProductPage /> },
+            { path: "newProduct/:productID", element: <NewProductPage /> },
             { path: "blog/:blogID", element: <BlogPage /> },
             
             { path: "forbidden", element: <Forbidden /> },
@@ -62,7 +64,7 @@ const router = createBrowserRouter([
 
                         const { data } = await AuthService.getMe();
                         console.log(data);
-                        if (!data.user.roles.includes('USER')) { // ADMIN
+                        if (!data.user.roles.includes('ADMIN')) { // ADMIN
                             return redirect('/forbidden')
                         }
 
