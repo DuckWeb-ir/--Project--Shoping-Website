@@ -2,7 +2,14 @@ import React from 'react'
 
 function Content() {
     return (
-        <div>Content</div>
+        <div className="">
+
+            <div className='h-110'>Content</div>
+            <div className='h-110'>Content</div>
+            <div className='h-110'>Content</div>
+            <div className='h-110'>Content</div>
+
+        </div>
     )
 }
 

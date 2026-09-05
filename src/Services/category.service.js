@@ -1,10 +1,51 @@
-import api from './api'
+import api from "./api";
 
+// Categories
+export const getAllCategories = async () => {
+  const { data } = await api.get("/category");
 
-const getAllCategory = async () => {
+  return data;
+};
 
-    const { data } = await api.get( '/category')
+export const createCategory = async (formData) => {
+  const { data } = await api.post("/category", formData);
 
-    return data
-}
-export default getAllCategory
+  return data;
+};
+
+export const updateCategory = async (id, formData) => {
+  const { data } = await api.put(`/category/${id}`, formData);
+
+  return data;
+};
+
+export const removeCategory = async (id) => {
+  const { data } = await api.delete(`/category/${id}`);
+
+  return data;
+};
+
+// SubCategories
+export const getAllSubCategories = async () => {
+  const { data } = await api.get("/category/sub");
+
+  return data;
+};
+
+export const createSubCategory = async (formData) => {
+  const { data } = await api.post("/category/sub", formData);
+
+  return data;
+};
+
+export const updateSubCategory = async (id, formData) => {
+  const { data } = await api.put(`/category/sub/${id}`, formData);
+
+  return data;
+};
+
+export const removeSubCategory = async (id) => {
+  const { data } = await api.delete(`/category/sub/${id}`);
+
+  return data;
+};

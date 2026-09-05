@@ -19,6 +19,8 @@ import NotFound from "../Pages/NotFound.jsx";
 import ModeratorProducts from "../Pages/Dashboard/moderator/products/page.jsx";
 import Test from "../Pages/Test.jsx";
 import Contact from "../Components/Contact/index.jsx";
+import ModeratorCategories from "../Pages/Dashboard/moderator/Categories/page.jsx";
+import ModeratorUsers from "../Pages/Dashboard/moderator/Users/page.jsx";
 import NewProductPage from "../Pages/NewProductPage.jsx";
 
 const router = createBrowserRouter([
@@ -38,10 +40,10 @@ const router = createBrowserRouter([
             { path: "product/:productID", element: <ProductPage /> },
             { path: "newProduct/:productID", element: <NewProductPage /> },
             { path: "blog/:blogID", element: <BlogPage /> },
-            
+
             { path: "forbidden", element: <Forbidden /> },
             { path: '*', element: <NotFound /> },
-            
+
             { path: "Test", element: <Test /> },
         ],
     },
@@ -52,7 +54,7 @@ const router = createBrowserRouter([
             { index: true, element: <AuthPage /> }
         ]
     },
-    
+
     {
         path: 'dashboard',
         element: <CMSLayout />,
@@ -61,25 +63,25 @@ const router = createBrowserRouter([
                 path: 'moderator',
                 loader: async () => {
                     try {
-
                         const { data } = await AuthService.getMe();
                         console.log(data);
-                        if (!data.user.roles.includes('ADMIN')) { // ADMIN
-                            return redirect('/forbidden')
+
+                        if (!data.user.roles.includes('ADMIN')) {
+                            return redirect('/forbidden');
                         }
 
-                        return data.user
-
+                        return data.user;
                     } catch (err) {
-                        return redirect('/auth')
-
+                        return redirect('/auth');
                     }
                 },
                 children: [
                     { index: true, loader: () => redirect("home") },
                     { path: 'home', element: <div>moderator home D</div> },
                     { path: 'orders', element: <div>moderator orders D</div> },
-                    { path: 'products', element: <ModeratorProducts/> },
+                    { path: 'products', element: <ModeratorProducts /> },
+                    { path: 'categories', element: <ModeratorCategories /> },
+                    { path: 'users', element: <ModeratorUsers /> },
                 ]
             },
             {

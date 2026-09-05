@@ -4,13 +4,16 @@ import Content from '../Components/Templates/NewProduct/content'
 
 function NewProductPage() {
     return (
-        <div className='container grid bg-amber-400 grid-cols-10 gap-2 my-10'>
-            <div className="w-full col-span-7 bg-amber-200">
-            <Content />
+        <div className="container grid grid-cols-10 gap-5 my-10 items-start">
+            <div className="col-span-7 w-full bg-amber-200">
+                <Content />
             </div>
-            <div className="w-full col-span-3 bg-white shadow-card-md rounded-md p-5">
-                <SideBar />
-            </div>
+
+            <aside className="col-span-3 w-full sticky top-5">
+                <div className="bg-white shadow-card-md rounded-md p-5">
+                    <SideBar />
+                </div>
+            </aside>
         </div>
     )
 }

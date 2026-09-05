@@ -1,5 +1,6 @@
-import { ChevronLeft, Heart, MessagesSquare, Palette, Scale, Share2, ShieldCheck, ShoppingBag, Sparkles, Truck } from 'lucide-react'
+import { ChevronLeft, Heart, MemoryStick, MessagesSquare, Palette, Scale, Share2, ShieldCheck, ShoppingBag, ShoppingCart, Sparkles, Truck } from 'lucide-react'
 import React from 'react'
+import Button from '../../../Ui/‌Btn'
 
 function SideBar() {
     return (
@@ -12,13 +13,13 @@ function SideBar() {
                 <Scale />
             </div>
             {/* seller info */}
-            <div className=" p-4 bg-primary-50 rounded-md gap-1.5 ">
+            <div className=" p-4 bg-secondary-50 rounded-md gap-1.5 ">
                 <div className="flex gap-3">
                     {/* icon */}
                     <ShoppingBag />
                     <div className="w-full flex flex-col">
                         {/* shop name */}
-                        <div className="w-full flex justify-between items-center mb-2">
+                        <div className="w-full  flex justify-between items-center mb-2 leading-none">
                             <div className="flex items-center gap-2 font-bold">
                                 <h3>فروشنده :</h3>
                                 <h3 className=" text-lg">شاپینو</h3>
@@ -47,14 +48,15 @@ function SideBar() {
 
                 </div>
             </div>
-            {/* color */}
 
+
+            {/* color */}
             <div className="flex gap-3">
                 {/* icon */}
                 <Palette />
                 <div className="w-full flex flex-col">
-                    {/* shop name */}
-                    <div className="w-full flex justify-between items-center mb-2">
+                    {/* Title */}
+                    <div className="w-full flex justify-between items-center mb-2 leading-none">
                         <div className="flex items-center gap-2 font-bold">
                             <h3>رنگ :</h3>
                             <h3 className=" text-lg">تیتانیوم</h3>
@@ -82,6 +84,39 @@ function SideBar() {
                 </div>
 
             </div>
+
+            {/* price */}
+            <div className="flex flex-col items-end  gap-2 ">
+
+                <div className="flex gap-2 items-end leading-none">
+                    {/* Old price */}
+                    <div className="relative mb-1 text-sm font-medium text-gray-400">
+                        <span className="line-through">
+                            ۹۶,۰۰۰,۰۰۰ تومان
+                        </span>
+                    </div>
+                    {/* Discount badge */}
+                    <div className="rounded-full bg-red-600 px-3 py-1 text-sm font-bold text-white shadow-sm">
+                        ۲٪ تخفیف
+                    </div>
+
+                </div>
+                {/* New price */}
+                <div className="text-3xl font-extrabold tracking-tight text-gray-900">
+                    ۸۶,۵۰۰,۰۰۰ تومان
+                </div>
+            </div>
+
+            {/*add to cart btn */}
+
+            <Button
+                icon={<ShoppingCart />}
+                variant='dark'
+                size='xl'
+                className="my-3"
+            >
+                افزودن به سبد خرید
+            </Button>
 
 
         </div>
