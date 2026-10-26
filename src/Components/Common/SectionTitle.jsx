@@ -4,7 +4,7 @@ import Button from "../Ui/‌Btn";
 const SectionTitle = ({ text, description, btn = false, btnText = 'مشاهده همه ', icon = <Radar /> }) => {
 
     return (
-        <div className="flex items-center justify-between group mb-7">
+        <div className="flex items-center justify-between group mb-1">
             {/* Title */}
             <div className="flex flex-col gap-3 ">
                 <div className="flex gap-2">

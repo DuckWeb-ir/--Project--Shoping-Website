@@ -67,6 +67,7 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
             onToggle()
         } catch (err) {
             setError(err.response?.data?.message || "خطایی رخ داده است");
+            toast.error(error)
         }
 
         setIsSubmitting(false);
@@ -138,8 +139,13 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
                         <p>
                             در حال بارگزاری دسته بندی ها...
                         </p>
+                        
                     ) : (
-                        <CascadeCategories categories={categories} onChange={handleCategoryChange} />
+
+                        <CascadeCategories
+                            categories={categories}
+                            onChange={handleCategoryChange}
+                        />
                     )
 
                     }
@@ -159,7 +165,10 @@ const ProductDrawer = ({ isOpen, onToggle }) => {
                 </div>
 
                 <div className="mt-5 flex items-center justify-end gap-2">
-                    <button className="px-4 py-2 rounded-md bg-red-500/10 text-red-500 hover:bg-red-500/15 ">
+                    <button
+                        className="px-4 py-2 rounded-md bg-red-500/10 text-red-500 hover:bg-red-500/15 "
+                        onClick={onToggle}
+                    >
                         انصراف
                     </button>
                     <button

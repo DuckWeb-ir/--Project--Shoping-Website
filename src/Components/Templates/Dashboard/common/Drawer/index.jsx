@@ -5,15 +5,14 @@ const Drawer = ({ children, title, className, isOpen = false, onClose }) => {
         // Overlay: closes the drawer when clicking outside of it
         <div
             onClick={onClose}
-            className={`fixed inset-0 z-50 transition-opacity duration-500 bg-black/50 ${
-                isOpen ? "opacity-100" : "opacity-0 invisible"
-            }`}
+            className={`fixed inset-0 z-50 transition-opacity duration-500 bg-black/50
+                 ${isOpen ? "opacity-100" : "opacity-0 invisible"
+                }`}
         >
             {/* Drawer panel */}
             <div
-                className={`absolute inset-y-0 overflow-auto right-0 w-full max-w-md bg-white transition-transform duration-500 ${
-                    isOpen ? "translate-x-0" : "translate-x-full"
-                } ${className}`}
+                className={`absolute inset-y-0 overflow-auto right-0 w-full max-w-md bg-white transition-transform duration-500 ${isOpen ? "translate-x-0" : "translate-x-full"
+                    } ${className}`}
                 // Prevent clicks inside the drawer from closing it
                 onClick={(e) => e.stopPropagation()}
             >

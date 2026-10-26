@@ -144,7 +144,7 @@ const products = [
             >
                 {products.map((product, index) => (
                     <SwiperSlide
-                        key={index}
+                        key={product.id}
                         className="w-70! sm:w-75!"
                     >
                         <ProductCard {...product} />

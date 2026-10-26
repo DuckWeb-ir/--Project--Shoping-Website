@@ -5,9 +5,7 @@ function Content() {
         <div className="">
 
             <div className='h-110'>Content</div>
-            <div className='h-110'>Content</div>
-            <div className='h-110'>Content</div>
-            <div className='h-110'>Content</div>
+
 
         </div>
     )

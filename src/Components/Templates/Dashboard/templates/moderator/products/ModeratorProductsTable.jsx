@@ -45,6 +45,7 @@ const ModeratorProductsTable = () => {
 
     return (
         <>
+            {/* table + toggleDrawer */}
             <Table>
                 <TableToolbar useFlexBetween>
                     {/* title */}
@@ -132,7 +133,7 @@ const ModeratorProductsTable = () => {
             </Table>
 
             {/* pagination  */}
-            <Pagination pagination={pagination} page={page} setPage={setPage}/>
+            <Pagination pagination={pagination} page={page} setPage={setPage} />
 
             <Confirm
                 isOpen={!!deletingProduct}

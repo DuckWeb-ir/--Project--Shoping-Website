@@ -12,6 +12,8 @@ const emptyPair = {
 };
 
 const useProductForm = () => {
+
+
     const [form, setForm] = useState({
         name: "",
         slug: "",
@@ -24,8 +26,11 @@ const useProductForm = () => {
 
     const [selectedCategory, setSelectedCategory] = useState(null);
 
-    const setField = (name, value) =>
+
+    const setField = (name, value) => {
+        
         setForm((prev) => ({ ...prev, [name]: value }));
+    }
 
     const handleCategoryChange = (category) => {
         setSelectedCategory(category);

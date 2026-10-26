@@ -9,7 +9,8 @@
 html {
     direction: rtl;
     scroll-behavior: smooth;
-    background-color: #F3F8FC
+    /* background-color: #F3F8FC */
+    background-color: #eeeded4d
 }
 
 body {
@@ -132,7 +133,9 @@ body {
     @apply flex items-center justify-between;
 }
 
-
+@utility box-style {
+    @apply w-full p-5 bg-white rounded-2xl shadow-card-md border border-secondary-200/80;
+}
 
 
 
