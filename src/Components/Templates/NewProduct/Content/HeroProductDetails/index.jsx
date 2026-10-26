@@ -6,12 +6,14 @@ import ProductRating from './Fragments/ProductRating'
 import ProductColor from './Fragments/ProductColor'
 import ProductSpecifications from './Fragments/ProductSpecifications'
 import ProductGallery from './Fragments/ProductGallery'
+import Breadcrumbs from '../../../../Common/Breadcrumbs'
 
 
 function HeroProductDetails() {
     return (
         <section className="my-4">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+            <Breadcrumbs />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start mt-4">
 
                 {/* گالری تصاویر */}
                 <div className="box-style lg:col-span-4">
