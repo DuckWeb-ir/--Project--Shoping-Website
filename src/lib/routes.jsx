@@ -22,6 +22,7 @@ import Contact from "../Components/Contact/index.jsx";
 import ModeratorCategories from "../Pages/Dashboard/moderator/Categories/page.jsx";
 import ModeratorUsers from "../Pages/Dashboard/moderator/Users/page.jsx";
 import NewProductPage from "../Pages/NewProductPage.jsx";
+import Shop from "../Pages/Shop.jsx";
 
 const router = createBrowserRouter([
     {
@@ -34,7 +35,8 @@ const router = createBrowserRouter([
 
             { path: "contact-us", element: <ContactUSPage /> },
             { path: "contact", element: <Contact /> },
-
+            
+            { path: "shop", element: <Shop /> },
 
             { path: "cart", element: <CartPage /> },
             { path: "product/:productID", element: <ProductPage /> },
