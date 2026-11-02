@@ -23,6 +23,7 @@ import ModeratorCategories from "../Pages/Dashboard/moderator/Categories/page.js
 import ModeratorUsers from "../Pages/Dashboard/moderator/Users/page.jsx";
 import NewProductPage from "../Pages/NewProductPage.jsx";
 import Shop from "../Pages/Shop.jsx";
+import ArticlesList from "../Pages/ArticlesList.jsx";
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,8 @@ const router = createBrowserRouter([
             { path: "contact", element: <Contact /> },
             
             { path: "shop", element: <Shop /> },
+            
+            { path: "articles", element: <ArticlesList /> },
 
             { path: "cart", element: <CartPage /> },
             { path: "product/:productID", element: <ProductPage /> },
