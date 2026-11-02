@@ -121,10 +121,6 @@ export default function ProductCard(props) {
 
                     </div>
 
-
-
-
-
                     {/* price */}
 
                     <div className=" mt-3 flex justify-between items-center gap-2">
@@ -132,8 +128,6 @@ export default function ProductCard(props) {
                         <span className=" text-xs text-red-400 line-through py-2.5">
                             {toPersianNumber(props.oldPrice)}
                         </span>
-
-
                         <div className=" text-right leading-4">
                             <strong className=" text-md text-slate-900">
                                 {toPersianNumber(props.price)}
