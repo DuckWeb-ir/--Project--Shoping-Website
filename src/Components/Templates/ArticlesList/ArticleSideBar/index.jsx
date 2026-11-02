@@ -1,8 +1,11 @@
 import React from 'react'
+import ArticleCategory from './Fragments/ArticleCategory'
 
 function ArticleSideBar() {
   return (
-    <div>ArticleSideBar</div>
+    <div className=''>
+        <ArticleCategory/>
+    </div>
   )
 }
 

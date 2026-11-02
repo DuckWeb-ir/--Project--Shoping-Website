@@ -3,7 +3,7 @@ import React from 'react'
 
 function SectionHeader({title , description , img}) {
     return (
-        <div className=" h-50 flex-ic flex-col-reverse md:flex-row gap-7.5 md:gap-10 justify-between w-full  p-5 md:p-10 bg-linear-to-br from-primary-50 via-primary-100 to-primary-200 rounded-2xl">
+        <div className=" h-50 mt-35 md:mt-0 flex-ic flex-col-reverse md:flex-row gap-7.5 md:gap-10 justify-between w-full  p-5 md:p-10 bg-linear-to-br from-primary-50 via-primary-100 to-primary-200 rounded-2xl">
             {/* Header content */}
             <div className="flex-center flex-col gap-5 md:w-110">
                 <h2 className='font-extrabold text-2xl md:text-4xl '>{title}</h2>

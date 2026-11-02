@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-const Input = ({
+const InputUi = ({
     label,
     type = "text",
     name,
@@ -138,4 +138,4 @@ const Input = ({
     );
 };
 
-export default Input;
+export default InputUi;
