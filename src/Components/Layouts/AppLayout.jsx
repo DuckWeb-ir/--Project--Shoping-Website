@@ -3,6 +3,7 @@ import Footer from "../Common/Footer";
 import Header from "../Common/Header";
 import { Toaster } from "sonner";
 import { AuthProvider } from "../../context/AuthProvider";
+import DeveloperToolbar from "./DeveloperToolbar";
 
 const AppLayout = () => {
     return (
@@ -15,6 +16,8 @@ const AppLayout = () => {
             <Header />
             <Outlet />
             <Footer />
+
+            <DeveloperToolbar/>
         </AuthProvider>
     );
 };
